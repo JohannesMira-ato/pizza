@@ -9,6 +9,10 @@ app = Flask(__name__)
 def homepage():
     return render_template("home.html")
 
+@app.route('/triangle/<int:size>')
+def triangle(size):
+        return render_template('triangle.html')
+
 
 @app.route('/about')
 def about():
