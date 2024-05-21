@@ -14,12 +14,14 @@ app = Flask(__name__)
 def homepage():
     return render_template("home.html")
 
-@app.route('/triangle/<int:size>')
-def triangle(size):
+@app.route('/triangle/direction/<int:size>')
+#add extra types so inverted triangles, pyramids and maybe even diamonds can be made. 
+def triangle(direction, size):
     result = ""
     for number in range(1, size + 1):
         result += "*" * number + "<br>"
     return result
+
 
 @app.route('/about')
 def about():
