@@ -2,6 +2,11 @@
 from flask import Flask, render_template
 import sqlite3
 
+def triangle(size):
+  size += 1
+  for number in range(size):
+    print("*" * number)
+
 app = Flask(__name__)
 
 
@@ -11,8 +16,10 @@ def homepage():
 
 @app.route('/triangle/<int:size>')
 def triangle(size):
-        return render_template('triangle.html')
-
+    result = ""
+    for number in range(1, size + 1):
+        result += "*" * number + "<br>"
+    return result
 
 @app.route('/about')
 def about():
